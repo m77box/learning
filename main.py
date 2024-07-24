@@ -14,3 +14,7 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+git config --global user.name "m77box"
+git config --global user.email "liminyang17@gmail.com"
+
