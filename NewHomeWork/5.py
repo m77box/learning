@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 # Question 5: Calculate Factorial Using Recursion
 # Problem: Write a function factorial(n) that takes an integer n and returns its factorial using recursion.
 
