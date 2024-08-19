@@ -1,3 +1,5 @@
+# try before you use Pseudocode's help
+
 # Question 1: Reverse a String
 # Problem: Write a function reverse_string(s) that takes a string s and returns the string reversed.
 # Hint: Things that can be used: list, len, slicing, for loop, string concatenation
