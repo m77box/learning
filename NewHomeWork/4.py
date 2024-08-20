@@ -4,6 +4,7 @@
 
 def count_vowels(s):
     # Your code will go here
+    # check Pseudocode from file 18thAugHomework_Help*.py
     pass
 
 # How to test:
