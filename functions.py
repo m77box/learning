@@ -74,6 +74,7 @@ def square(rainbow):
 print(array)
 print(square(array))
 
+# good RP
 
 
 
