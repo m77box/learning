@@ -3,7 +3,7 @@
 
 
 def reverse_string(txt):
-    return txt[::-1] # todo please check psudeo code ,implent that way ::-1 is not a good way for learning
+    return txt[::-1]
 
 h = input("enter a txt: ")
 
