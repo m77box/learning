@@ -11,7 +11,7 @@ def reverse_string(txt):
 # effectively reversing the order of characters.
     return str
 
-h = input("enter a txt: ")
+h = "helllo"
 
 # How to test:
 print("reversed result: ",reverse_string(h))  # Expected output: "olleh"
