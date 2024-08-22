@@ -11,6 +11,6 @@ def count_vowels(s):
     return numbers_vowel
     # check Pseudocode from file 18thAugHomework_Help*.py
 
-x = input("enter a txt: ")
+x = "limin"
 # How to test:
 print("this text contains total vowels are: ", count_vowels(x))  # Expected output: 3
