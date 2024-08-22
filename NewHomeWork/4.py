@@ -3,7 +3,7 @@
 # Problem: Write a function count_vowels(s) that takes a string s and returns the number of vowels (a, e, i, o, u) in the string.
 
 def count_vowels(s):
-    vowel = ['a','e','i','o','u','A','E','I','O','U']
+    vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
     numbers_vowel = 0
     for i in s:
         if i in vowel:
