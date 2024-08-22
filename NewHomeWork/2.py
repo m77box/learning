@@ -14,9 +14,3 @@ def is_prime(num):
 x = int(input("enter any number: "))
 # How to test:
 print(is_prime(x))   # Expected output: True
-
-def ex():
-
-    pass
-
-ex()
