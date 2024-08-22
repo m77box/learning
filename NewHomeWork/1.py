@@ -3,9 +3,16 @@
 
 
 def reverse_string(txt):
-    return txt[::-1]
+# return txt[::-1]
+    str = ""
+    for i in txt:
+        str = i + str # for each character 'i', the function
+    #prepends it to the string 'str'. This means that each new character is added to the front of str,
+# effectively reversing the order of characters.
+    return str
 
 h = input("enter a txt: ")
 
 # How to test:
 print("reversed result: ",reverse_string(h))  # Expected output: "olleh"
+
