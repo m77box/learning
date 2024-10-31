@@ -1,0 +1,56 @@
+URL: http://localhost:3000/
+
+
+Server-side scripting (file name: Node.js)
+
+const express = require('express');
+const Node = express();
+const port = 3000;
+
+Node.use(express.urlencoded({ extended: true }));
+Node.use(express.static('public'));
+
+Node.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+Node.post('/submit-form', (req, res) => {
+    const username = req.body.username;
+    
+    // Simple validation
+    if (!username || username.length < 3) {
+        return res.status(400).send('Username must be at least 3 characters long');
+    }
+    
+    // Process the data (in this case, just sending it back)
+    res.json({ message: `Hello, ${username}! Your form was submitted successfully.` });
+});
+
+Node.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});
+
+
+
+
+
+
+Integration with Client-Side Code (file name: index.html)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form</title>
+</head>
+<body>
+    <form action="/submit-form" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+
+
+
