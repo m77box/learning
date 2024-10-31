@@ -53,4 +53,11 @@ Integration with Client-Side Code (file name: index.html)
 
 
 
+Local Testing to ensure front-end and back-end components work together
+Step 1: In the terminal within Visual Studio Code, type `node Node.js` to start the server
+Step 2: Open a web browser and go to http://localhost:3000
+If a submitted username is more than 3 characters, it will show a correct message, otherwise, it will occur an error message. 
+
+
+
 
