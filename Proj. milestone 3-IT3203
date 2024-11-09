@@ -1,0 +1,103 @@
+
+//server side
+
+const express = require('express');
+const Node = express();
+const port = 3000;
+
+
+function logRequests(req, res, next) {
+    const timestamp = new Date().toISOString();
+    const method = req.method;
+    const url = req.url;
+    const ip = req.ip;
+    console.log(`[${timestamp}] ${method} ${url} - IP: ${ip}`);
+    next();
+}
+
+Node.use(logRequests);
+
+
+
+Node.use(express.urlencoded({ extended: true }));
+Node.use(express.static('public'));
+
+Node.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+Node.post('/submit-form', (req, res) => {
+    const username = req.body.username;
+    
+    if (!username || username.length < 3) {
+        return res.status(400).send('Username must be at least 3 characters long');
+    }
+    
+    res.json({ message: `Hello, ${username}! Your form was submitted successfully.` });
+});
+
+Node.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});
+
+
+//----------------------------------------------------------------------------------------------------
+//client side (added the text color, error and success message to display feedback to the user)
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <style>
+        .error { color: red; display: none; }
+        .success { color: green; display: none; }
+    </style>
+</head>
+<body>
+    <form id="usernameForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required minlength="3">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="errorMessage" class="error"></p>
+    <p id="successMessage" class="success"></p>
+
+    <script>
+
+        document.getElementById('usernameForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+
+            if (username.length < 3) {
+                errorMessage.textContent = 'Username must be at least 3 characters long';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+
+            fetch('/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `username=${encodeURIComponent(username)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                successMessage.textContent = data.message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            })
+            .catch(error => {
+                errorMessage.textContent = 'An error occurred. Please try again.';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
