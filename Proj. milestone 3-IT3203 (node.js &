@@ -1,5 +1,5 @@
 
-//server side
+//server side -- Node.js
 
 const express = require('express');
 const Node = express();
@@ -42,7 +42,8 @@ Node.listen(port, () => {
 
 
 //----------------------------------------------------------------------------------------------------
-//client side (added the text color, error and success message to display feedback to the user)
+//client side -- index.html
+//added the text color, error and success message to display feedback to the user
 
 <!DOCTYPE html>
 <head>
